@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Healthcare theme - vibrant blues and greens with gradients */
+    --background: 210 60% 98%;
+    --foreground: 205 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 205 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 30% 15%;
+
+    --primary: 205 85% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 205 85% 70%;
+    --primary-dark: 205 85% 50%;
+
+    --secondary: 160 70% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 160 70% 75%;
+
+    --muted: 205 45% 94%;
+    --muted-foreground: 205 20% 40%;
+
+    --accent: 180 75% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 75% 65%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 205 35% 90%;
+    --input: 205 35% 92%;
+    --ring: 205 85% 60%;
+
+    --radius: 0.875rem;
+
+    --success: 160 70% 65%;
+    --success-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 205 30% 15%;
+    --sidebar-primary: 205 85% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 205 45% 94%;
+    --sidebar-accent-foreground: 205 30% 15%;
+    --sidebar-border: 205 35% 90%;
+    --sidebar-ring: 205 85% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(205 85% 60%) 0%, hsl(180 75% 55%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(160 70% 65%) 0%, hsl(180 75% 65%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(210 60% 98%) 0%, hsl(205 45% 96%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(205 85% 60% / 0.1);
+    --shadow-md: 0 4px 16px -4px hsl(205 85% 60% / 0.15);
+    --shadow-lg: 0 8px 32px -8px hsl(205 85% 60% / 0.2);
+    --shadow-glow: 0 0 32px hsl(205 85% 60% / 0.25);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 205 45% 6%;
+    --foreground: 205 20% 95%;
+
+    --card: 205 40% 10%;
+    --card-foreground: 205 20% 95%;
+
+    --popover: 205 40% 10%;
+    --popover-foreground: 205 20% 95%;
+
+    --primary: 205 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 205 85% 75%;
+    --primary-dark: 205 85% 55%;
+
+    --secondary: 160 60% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 160 60% 65%;
+
+    --muted: 205 35% 18%;
+    --muted-foreground: 205 15% 65%;
+
+    --accent: 180 70% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 70% 65%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 205 30% 22%;
+    --input: 205 30% 20%;
+    --ring: 205 85% 65%;
+    
+    --success: 160 60% 55%;
+    --success-foreground: 0 0% 100%;
+
+    --sidebar-background: 205 40% 10%;
+    --sidebar-foreground: 205 20% 95%;
+    --sidebar-primary: 205 85% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 205 35% 18%;
+    --sidebar-accent-foreground: 205 20% 95%;
+    --sidebar-border: 205 30% 22%;
+    --sidebar-ring: 205 85% 65%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(205 85% 65%) 0%, hsl(180 70% 55%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(160 60% 55%) 0%, hsl(180 70% 60%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(205 45% 6%) 0%, hsl(205 40% 8%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(205 85% 65% / 0.2);
+    --shadow-md: 0 4px 16px -4px hsl(205 85% 65% / 0.3);
+    --shadow-lg: 0 8px 32px -8px hsl(205 85% 65% / 0.4);
+    --shadow-glow: 0 0 32px hsl(205 85% 65% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-soft {
+    background: var(--gradient-soft);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
